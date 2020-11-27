@@ -1,0 +1,31 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+      <h1 th:text="${title}">ホテル詳細</h1>
+      <div class="card mb-3" th:object="${hotel}">
+        <img th:src="*{getPhotoUrl()}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h2 class="card-title" th:text="*{name}"></h2>
+          <p class="card-text" th:text="*{body}"></p>
+          <p class="card-text" th:text="*{phone}"></p>
+          <h6 class="card-title"><b>所在地:</b><span th:text="*{location}" class="card-text"></span></h6>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <h6 class="card-title"><b>最新のレビュー</b></h6>
+      <tr th:each="review:${reviews}" th:object="${review}">
+        <div class="card w-100">
+          <div class="card-header">評価：<span><td th:text="*{rating}"></td></span>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">名前:<span><td th:text="*{name}"></td></span></li>
+            <li class="list-group-item">タイトル:<span><td th:text="*{title}"></td></span></li>
+            <li class="list-group-item">内容：<span><td th:text="*{body}"></td></span></li>
+          </ul>
+        </div>
+      </tr>
+      <ul class="d-flex justify-content-around">
+        <a class="btn btn-link" href="/hotels">一覧画面へ</a>
+        <a class="btn btn-link" th:href="@{/hotels/{hotel_id}/reviews/new(hotel_id=${hotel.id})}">レビューを投稿する</a>
+      </ul>
+    </div>
+  </div>

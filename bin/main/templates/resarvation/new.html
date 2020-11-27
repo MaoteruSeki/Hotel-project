@@ -1,0 +1,42 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+        <h1 th:text="${title}">Resarvation</h1>
+        <form th:action="@{/hotels/{hotel_id}/resarvations(hotel_id=*{hotel.id})}" th:method="post">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">氏名</label>
+                <input type="text" name="name" class="form-control" id="exampleFormControlInput1">  
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" name="email"class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">人数</label>
+              <select class="form-control" name="numberOfPeople" id="exampleFormControlSelect1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">連絡事項</label>
+              <textarea type="description" name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div>
+                <label class="control-label">チェックイン日</label>
+                <input class="form-control" type="date" name="startDate" />
+            </div>
+            <div>
+                <label class="control-label">チェックアウト日</label>
+                <input class="form-control" type="date" name="endDate" />
+            </div>
+            <button class="btn btn-outline-danger" type="submit">予約</button>
+            
+          </form>
+          <ul class="d-flex justify-content-around">
+            <a class="btn btn-link" href="/hotels">一覧画面へ</a>
+             <a class="btn btn-link" th:href="@{/hotels/{hotel_id}(hotel_id=${hotel.id})}">ホテル詳細</a>
+          </ul>
+    </div>
+</div>

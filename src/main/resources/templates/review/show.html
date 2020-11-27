@@ -1,0 +1,45 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+      <h1 th:text="${title}">レビュー詳細</h1>
+      <div th:object="${review}">
+        <div>
+          <label>ID</label>
+          <p th:text="*{id}"></p>
+        </div>
+        <div>
+          <label>名前</label>
+          <p th:text="*{name}"></p>
+        </div>
+        <div>
+          <label>タイトル</label>
+          <p th:text="*{title}"></p>
+        </div>
+        <div>
+          <label>本文</label>
+          <p th:text="*{body}"></p>
+        </div>
+        <div>
+          <label>評価</label>
+          <p th:text="*{rating}"></p>
+        </div>
+      </div>
+      <div th:object="${review}"　class="card" style="width: 18rem;">
+        <div class="card-header">評価
+          <p th:text="*{rating}"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">名前
+            <p th:text="*{name}"></p>
+          </li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      <div>
+        <a class="btn btn-secondary" th:href="@{/hotels/{hotel_id}/reviews/{id}/edit(hotel_id=*{hotel.id},id=*{id})}">編集</a>
+      </div>
+      <div class="pull-right">
+        <a class="btn btn-link m-auto" href="/hotels">一覧画面へ</a>
+      </div>
+    </div>
+  </div>

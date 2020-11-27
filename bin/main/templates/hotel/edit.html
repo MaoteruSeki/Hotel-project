@@ -1,0 +1,29 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+      <h1 th:text="${title}">Editing Hotel</h1>
+      <form th:action="@{/hotels/{id}(id=*{id})}" th:method="put" th:object="${hotel}">
+        <div class="form-group">
+          <label class="control-label">名前</label>
+          <input class="form-control" type="text" th:field="*{name}" />
+        </div>
+        <div class="form-group">
+          <label class="control-label">説明</label>
+          <input class="form-control" type="text" th:field="*{description}" />
+          <div class="form-group">
+            <label class="control-label" for="file">写真</label>
+            <div class="form-control">
+                <input type="file" name="file" id="file" />
+            </div>
+        </div>
+        </div>
+        <label class="control-label">電話番号</label>
+        <input class="form-control" type="text" th:field="*{phone}" />
+      </div>
+
+        <button class="btn btn-secondary" type="submit">更新</button>
+      </form>
+      <div class="pull-right">
+        <a class="btn btn-link" href="/hotels">一覧画面へ</a>
+      </div>
+    </div>
+  </div>

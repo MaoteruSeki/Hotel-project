@@ -1,0 +1,15 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+      <h1 th:text="${title}">お問い合わせありがとうございます</h1>
+      <div th:object="${contact}">
+        <ul class="list-group">
+          <li class="list-group-item">名前:<span th:text="*{name}"></span></li>
+          <li class="list-group-item">メールアドレス：<span th:text="*{email}"></span></li>
+          <li class="list-group-item">お問い合わせ内容：<span th:text="*{body}"></span></li>
+        </ul>
+      </div>
+      <div class="pull-right">
+        <a class="btn btn-link" href="/hotels">一覧画面へ</a>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,19 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+      <h1 th:text="${title}">予約完了</h1>
+    <div th:object="${resarvation}">
+      <ul class="list-group">
+        <li class="list-group-item">名前:<span th:text="*{name}"></span></li>
+        <li class="list-group-item">メールアドレス：<span th:text="*{email}"></span></li>
+        <li class="list-group-item">チェックイン日：<span th:text="*{startDate}"></span></li>
+        <li class="list-group-item">チェックアウト日：<span th:text="*{endDate}"></span></li>
+        <li class="list-group-item">人数：<span th:text="*{numberOfPeople}"></span></li>
+        <li class="list-group-item">連絡事項：<span th:text="*{description}"></span></li>
+      </ul>
+    </div>
+      
+      <div class="pull-right">
+        <a class="btn btn-link mt-5" href="/hotels">一覧画面へ</a>
+      </div>
+    </div>
+  </div>

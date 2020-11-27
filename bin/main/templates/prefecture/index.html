@@ -1,0 +1,23 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+        <div class="big-bg">
+            <img th:src="@{/images/sd_okinawa_earlybird.jpg}" class="background" alt="...">
+                <h1 th:text="${title}"></h1>
+                    <div class="d-flex justify-content-center">
+                        <form class="form-inline" action="/hotels">
+                            <label for="exampleFormControlSelect1"></label>
+                            <select class="form-control mr-sm-2" type="text" name="name" placeholder="都道府県" id="exampleFormControlSelect1">
+                              <option value="東京">東京都</option>
+                              <option value="沖縄">沖縄県</option>
+                              <option value="長野">長野県</option>
+                              <option value="大阪">大阪府</option>
+                              <option value="山梨">山梨県</option>
+                              <option value="福岡">福岡県</option>
+                              <option value="秋田">秋田県</option>
+                              <option value="愛知">愛知県</option>
+                            </select>
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+                        </form>
+                    </div>
+        </div>
+</div>

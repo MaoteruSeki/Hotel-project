@@ -1,0 +1,19 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+      <h1 th:text="${title}">最新のレビュー</h1>
+      <tr th:each="review:${reviews}" th:object="${review}">
+        <div class="card w-100">
+          <div class="card-header">評価：<span><td th:text="*{rating}"></td></span></div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">名前:<span><td th:text="*{name}"></td></span></li>
+            <li class="list-group-item">タイトル:<span><td th:text="*{title}"></td></span></li>
+            <li class="list-group-item">内容：<span><td th:text="*{body}"></td></span></li>
+          </ul>
+        </div>
+      </tr>
+      <ul class="d-flex justify-content-around">
+        <a class="btn btn-link" th:href="@{/hotels/{hotel_id}/reviews/new(hotel_id=${hotel.id})}">新規作成</a>
+        <a class="btn btn-link" th:href="@{/hotels/{hotel_id}(hotel_id=${hotel.id})}">ホテル詳細</a>
+      </ul>
+    </div>
+</div>

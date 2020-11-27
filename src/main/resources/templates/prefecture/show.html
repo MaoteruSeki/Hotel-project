@@ -1,0 +1,39 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+        <div th:if="${#strings.isEmpty(queryName)}">
+            <h1 th:text="${title}"></h1>
+        </div>
+        <div th:unless="${#strings.isEmpty(queryName)}">
+            <h1>「<span th:text="${queryName}"></span>」の検索結果</h1>
+        </div>
+        <div th:if="${#strings.isEmpty(queryName)}">
+            <h1 th:text="${title}"></h1>
+        </div>
+        <div class="row">
+          <div class="card-deck">
+            <div class="col-md-3 my-2" th:each="hotel:${hotels}" th:object="${hotel}">
+                <div class="card">
+                    <img th:src="*{getPhotoUrl()}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-title"><b>ホテル名:</b><span th:text="*{name}" class="card-text"></span></h6>
+                        <h6 class="card-title"><b>詳細:</b><span th:text="*{description}" class="card-text"></span></h6>
+                        <h6 class="card-title"><b>電話番号:</b><span th:text="*{phone}" class="card-text"></span></h6>
+                    </div> 
+                    <div class="container">
+                        <div class="col-sm">
+                          <a th:href="@{/hotels/{id}(id=*{id})}" class="btn btn-outline-success w-100 my-2">参照</a>
+                        </div>
+                        <div class="col-sm">
+                          <a th:href="@{/hotels/{id}/reviews(id=*{id})}" class="btn btn-outline-success w-100 my-2">レビュー一覧</a>
+                        </div>
+                        <div class="col-sm">
+                          <a th:href="@{/hotels/{id}/resarvations/new(id=*{id})}" class="btn btn-outline-success w-100 my-2">予約</a>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <a class="btn btn-secondary" href="/hotels/new">新規作成</a>
+    </div>
+</div>
